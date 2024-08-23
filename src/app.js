@@ -15,4 +15,12 @@ app.use(express.urlencoded({extended: true, limit: "10KB"}))      //it encodes U
 app.use(express.static("public"))     //sometimes we want to store files/folder. Its not necessary to write "public" here. 
 //We wrote because we have a folder in our structure namned "public", which stores static contents like images and all.
 app.use(cookieParser())
+
+
+//routes import
+import userRouter from "./routes/user.routes.js"
+
+//routes declaration
+app.use("/api/v1/users", userRouter)
+
 export { app }
